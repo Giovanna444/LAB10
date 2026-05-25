@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Carro</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav>
+    <a href="/projects">Projects</a>
+    <a href="/carros">Listagem</a>
+    <a href="/carros/gerencia">Gerência</a>
+    <a href="/usuarios/login">Login</a>
+  </nav>
+  <h1>Editar Carro</h1>
+  <form action="/carros/atualizar/<%= carro._id %>" method="POST">
+    <label>Marca:</label>
+    <input type="text" name="marca" value="<%= carro.marca %>" required><br>
+    <label>Modelo:</label>
+    <input type="text" name="modelo" value="<%= carro.modelo %>" required><br>
+    <label>Ano:</label>
+    <input type="number" name="ano" value="<%= carro.ano %>" required><br>
+    <label>Quantidade:</label>
+    <input type="number" name="qtde_disponivel" value="<%= carro.qtde_disponivel %>" required><br>
+    <button type="submit">Salvar</button>
+    <a href="/carros/gerencia">Cancelar</a>
+  </form>
+</body>
+</html>

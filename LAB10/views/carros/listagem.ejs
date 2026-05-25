@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Carros Disponíveis</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav>
+    <a href="/projects">Projects</a>
+    <a href="/carros">Listagem</a>
+    <a href="/carros/gerencia">Gerência</a>
+    <a href="/usuarios/login">Login</a>
+  </nav>
+  <h1>Carros Disponíveis</h1>
+  <% carros.forEach(carro => { %>
+    <div>
+      <h2><%= carro.marca %> <%= carro.modelo %></h2>
+      <p>Ano: <%= carro.ano %></p>
+      <% if (carro.qtde_disponivel > 0) { %>
+        <p style="color:green">Disponível: <%= carro.qtde_disponivel %></p>
+      <% } else { %>
+        <p style="color:red">ESGOTADO</p>
+      <% } %>
+    </div>
+  <% }) %>
+</body>
+</html>

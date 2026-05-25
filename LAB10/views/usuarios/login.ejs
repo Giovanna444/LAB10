@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav>
+    <a href="/projects">Projects</a>
+    <a href="/carros">Carros</a>
+    <a href="/usuarios/cadastro">Cadastro</a>
+  </nav>
+  <h1>Login</h1>
+  <% if (erro) { %><p style="color:red"><%= erro %></p><% } %>
+  <form action="/usuarios/login" method="POST">
+    <label>Login:</label>
+    <input type="text" name="login" required><br>
+    <label>Senha:</label>
+    <input type="password" name="senha" required><br>
+    <button type="submit">Entrar</button>
+  </form>
+  <a href="/usuarios/cadastro">Criar conta</a>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerência de Carros</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav>
+    <a href="/projects">Projects</a>
+    <a href="/carros">Listagem</a>
+    <a href="/carros/gerencia">Gerência</a>
+    <a href="/usuarios/login">Login</a>
+  </nav>
+  <h1>Gerência de Carros</h1>
+  <h2>Cadastrar Novo Carro</h2>
+  <form action="/carros/cadastrar" method="POST">
+    <label>Marca:</label>
+    <input type="text" name="marca" required><br>
+    <label>Modelo:</label>
+    <input type="text" name="modelo" required><br>
+    <label>Ano:</label>
+    <input type="number" name="ano" required><br>
+    <label>Quantidade:</label>
+    <input type="number" name="qtde_disponivel" required><br>
+    <button type="submit">Cadastrar</button>
+  </form>
+  <h2>Carros Cadastrados</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Marca</th><th>Modelo</th><th>Ano</th>
+        <th>Qtde</th><th>Status</th><th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% carros.forEach(carro => { %>
+        <tr>
+          <td><%= carro.marca %></td>
+          <td><%= carro.modelo %></td>
+          <td><%= carro.ano %></td>
+          <td><%= carro.qtde_disponivel %></td>
+          <td>
+            <% if (carro.qtde_disponivel > 0) { %>
+              <span style="color:green">Disponível</span>
+            <% } else { %>
+              <span style="color:red">ESGOTADO</span>
+            <% } %>
+          </td>
+          <td>
+            <form action="/carros/vender/<%= carro._id %>" method="POST" style="display:inline">
+              <button type="submit">Vender</button>
+            </form>
+            <a href="/carros/editar/<%= carro._id %>">Editar</a>
+            <form action="/carros/remover/<%= carro._id %>" method="POST" style="display:inline">
+              <button type="submit">Remover</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>
