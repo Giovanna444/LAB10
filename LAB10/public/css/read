@@ -1,0 +1,289 @@
+Estrutura Lab 10
+OBS MongoDB: Nome de usuário: giovannaimamuraportella_db_user Senha: RNnnBC8AYaoNqpS4
+1.Abrir o prompt e executar como ADM 
+
+2.Digitar: cd "pasta do projeto"
+
+3.Para iniciar o projeto e instalar dependências: npm init -y (package.json) e npm install express mongodb ejs (pasta com módulos, mais de 1000 arquivos)
+
+4.Para rodar o servidor: node server.js
+
+5.Para criar as pastas: mkdir views, mkdir views\usuarios, mkdir views\carros, mkdir public, mkdir public\css
+
+6.Para acessar no navegador: http://localhost
+
+7.O QUE MUDAR NO PROJETO DEPENDENDO DO TEMA:
+1️⃣ server.js
+🔁 Trocar nomes das rotas
+Exemplo atual:
+app.get('/carros', async (req, res) => {
+Se virar floricultura:
+app.get('/flores', async (req, res) => {
+
+🔁 Trocar nome da collection do MongoDB
+Atual:
+db.collection('carros')
+Exemplo floricultura:
+db.collection('flores')
+
+🔁 Trocar variáveis
+Atual:
+const carros = await db.collection('carros').find({}).toArray();
+Novo:
+const flores = await db.collection('flores').find({}).toArray();
+
+2️⃣ Pasta views
+📁 Trocar nome da pasta
+Atual:
+views/carros
+Novo exemplo:
+views/flores
+
+3️⃣ Arquivos .ejs
+Trocar TODOS os textos visíveis.
+
+🔁 Exemplo
+Antes
+<h1>Carros Disponíveis</h1>
+Depois
+<h1>Flores Disponíveis</h1>
+
+🔁 Inputs
+Antes
+<label>Marca:</label>
+<input type="text" name="marca">
+Depois
+<label>Tipo:</label>
+<input type="text" name="tipo">
+
+4️⃣ Banco de dados
+🔁 Campos mudam
+Antes
+{
+  marca,
+  modelo,
+  ano,
+  qtde_disponivel
+}
+Depois (flores)
+{
+  tipo,
+  nome,
+  preco,
+  estoque
+}
+
+5️⃣ CSS
+Você muda apenas:
+public/css/style.css
+Ali troca:
+cores 
+imagens 
+tema visual 
+fontes 
+
+6️⃣ Navbar
+Trocar links.
+Antes
+<a href="/carros">Carros</a>
+Depois
+<a href="/flores">Flores</a>
+
+8.O QUE MUDA:
+Lugar	                  O que muda
+server.js	       rotas, variáveis, collections
+views/      	             textos e nomes
+MongoDB	          campos dos objetos
+style.css	                 aparência
+navbar	                    links
+
+9.O QUE NÃO MUDA: ✅ MongoDB, ✅ CRUD, ✅ EJS, ✅ Estrutura do projeto, ✅ Formulários, ✅ Métodos GET e POST (só “troca a skin” e os nomes do sistema.)
+
+10.EXEMPLO DO QUE MUDAR NO MONGODB 
+🔹 EXEMPLO ATUAL (carros)
+No seu server.js existe:
+db.collection('carros')
+Isso cria/usa uma coleção chamada:
+carros
+E salva dados assim:
+{
+  marca: "Toyota",
+  modelo: "Corolla",
+  ano: 2020,
+  qtde_disponivel: 5
+}
+
+🌸 EXEMPLO FLORICULTURA
+Você mudaria para:
+db.collection('flores')
+E os dados ficariam:
+{
+  tipo: "Rosa",
+  nome: "Rosa Vermelha",
+  preco: 25,
+  estoque: 10
+}
+
+11.DIFERENTES TIPOS DE CSS: 
+🌸 Floricultura
+Cores suaves, rosa e branco.
+body {
+  background: #fff0f5;
+  font-family: Arial;
+  color: #b03060;
+}
+
+nav {
+  background: #c94f7c;
+}
+
+button {
+  background: #c94f7c;
+  color: white;
+}
+🎮 Games
+Tema escuro neon.
+body {
+  background: #111;
+  color: #00ffcc;
+  font-family: Consolas;
+}
+
+nav {
+  background: #1f1f1f;
+}
+
+button {
+  background: #00ffcc;
+  color: black;
+}
+📚 Biblioteca
+Tema elegante e clássico.
+body {
+  background: #f5f1e8;
+  color: #5c4033;
+  font-family: Georgia;
+}
+
+nav {
+  background: #6b4226;
+}
+
+button {
+  background: #8b5e3c;
+  color: white;
+}
+🍔 Hamburgueria
+Tema vermelho e amarelo.
+body {
+  background: #fff3e0;
+  color: #b71c1c;
+  font-family: Verdana;
+}
+
+nav {
+  background: #d32f2f;
+}
+
+button {
+  background: #ff9800;
+  color: white;
+}
+🐶 Pet Shop
+Tema azul claro e fofo.
+body {
+  background: #e3f2fd;
+  color: #1565c0;
+  font-family: Arial;
+}
+
+nav {
+  background: #42a5f5;
+}
+
+button {
+  background: #1e88e5;
+  color: white;
+}
+💻 Loja de Tecnologia
+Tema moderno escuro.
+body {
+  background: #0d1117;
+  color: #c9d1d9;
+  font-family: 'Segoe UI';
+}
+
+nav {
+  background: #161b22;
+}
+
+button {
+  background: #238636;
+  color: white;
+}
+☕ Cafeteria
+Tema marrom e aconchegante.
+body {
+  background: #f3e5d0;
+  color: #4e342e;
+  font-family: Georgia;
+}
+
+nav {
+  background: #6d4c41;
+}
+
+button {
+  background: #8d6e63;
+  color: white;
+}
+🏋️ Academia
+Tema energético preto/vermelho.
+body {
+  background: #121212;
+  color: white;
+  font-family: Arial Black;
+}
+
+nav {
+  background: #b71c1c;
+}
+
+button {
+  background: #ff1744;
+  color: white;
+}
+✈️ Agência de Viagens
+Tema azul céu.
+body {
+  background: #e1f5fe;
+  color: #0277bd;
+  font-family: Tahoma;
+}
+
+nav {
+  background: #0288d1;
+}
+
+button {
+  background: #03a9f4;
+  color: white;
+}
+🎬 Cinema
+Tema preto e dourado.
+body {
+  background: #0a0a0a;
+  color: #ffd700;
+  font-family: Arial;
+}
+
+nav {
+  background: #1a1a1a;
+}
+
+button {
+  background: #ffd700;
+  color: black;
+}
+
+
